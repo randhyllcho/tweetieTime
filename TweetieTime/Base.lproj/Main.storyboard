@@ -28,8 +28,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-gx-ymE">
-                                                    <rect key="frame" x="113" y="39" width="395" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="113" y="28" width="395" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -37,11 +37,18 @@
                                                     <rect key="frame" x="8" y="8" width="97" height="84"/>
                                                     <color key="backgroundColor" red="0.83926990359999998" green="1" blue="0.83078076570000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z83-76-utf">
+                                                    <rect key="frame" x="113" y="57" width="284" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="tweetLabel" destination="TxP-gx-ymE" id="loP-3u-HXf"/>
                                             <outlet property="userImageView" destination="G48-cF-2wl" id="sgH-9x-NLx"/>
+                                            <outlet property="userNameLabel" destination="z83-76-utf" id="bMR-zc-YzH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

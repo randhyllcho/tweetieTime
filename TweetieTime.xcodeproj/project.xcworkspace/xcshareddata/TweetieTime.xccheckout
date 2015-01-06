@@ -10,22 +10,26 @@
 	<string>TweetieTime</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>18B2EE7884C9D2C3072776ED21D949A9251B4713</key>
+		<string>https://github.com/randhyllcho/tweetieTime.git</string>
 		<key>376E040639C55469E25B8B642155982C569C5184</key>
 		<string>https://github.com/randhyllcho/class-person-thing.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TweetieTime/TweetieTime.xcodeproj</string>
+	<string>TweetieTime.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>18B2EE7884C9D2C3072776ED21D949A9251B4713</key>
+		<string>../..</string>
 		<key>376E040639C55469E25B8B642155982C569C5184</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/randhyllcho/class-person-thing.git</string>
+	<string>https://github.com/randhyllcho/tweetieTime.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>376E040639C55469E25B8B642155982C569C5184</string>
+	<string>18B2EE7884C9D2C3072776ED21D949A9251B4713</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>376E040639C55469E25B8B642155982C569C5184</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ios</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>18B2EE7884C9D2C3072776ED21D949A9251B4713</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TweetieTime</string>
 		</dict>
 	</array>
 </dict>

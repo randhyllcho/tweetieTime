@@ -11,8 +11,10 @@ import UIKit
 class TweetCell: UITableViewCell {
 
   @IBOutlet weak var userImageView: UIImageView!
-    
+  
   @IBOutlet weak var tweetLabel: UILabel!
+  
+  @IBOutlet weak var userNameLabel: UILabel!
   
     override func awakeFromNib() {
         super.awakeFromNib()

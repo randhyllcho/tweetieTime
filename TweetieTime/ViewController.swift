@@ -49,6 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier("TWEET_CELL", forIndexPath: indexPath) as TweetCell
     let tweet = self.tweets[indexPath.row]
     cell.tweetLabel.text = tweet.text
+    cell.userNameLabel.text = tweet.userName
     return cell
   }
   
