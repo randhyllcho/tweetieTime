@@ -15,6 +15,7 @@
 		323098361A5B374F00B131F6 /* TweetieTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323098351A5B374F00B131F6 /* TweetieTimeTests.swift */; };
 		323098431A5B37A600B131F6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323098421A5B37A600B131F6 /* Tweet.swift */; };
 		323098471A5B3A0F00B131F6 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323098461A5B3A0F00B131F6 /* TweetCell.swift */; };
+		328BAB161A5C9628006E7633 /* uglyBIrd.png in Resources */ = {isa = PBXBuildFile; fileRef = 328BAB151A5C9628006E7633 /* uglyBIrd.png */; };
 		32E6F6531A5B4AED00CF7814 /* tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = 32E6F6521A5B4AED00CF7814 /* tweet.json */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		323098351A5B374F00B131F6 /* TweetieTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetieTimeTests.swift; sourceTree = "<group>"; };
 		323098421A5B37A600B131F6 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		323098461A5B3A0F00B131F6 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		328BAB151A5C9628006E7633 /* uglyBIrd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uglyBIrd.png; sourceTree = "<group>"; };
 		32E6F6521A5B4AED00CF7814 /* tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweet.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				3230983F1A5B377800B131F6 /* Model */,
 				3230981F1A5B374F00B131F6 /* AppDelegate.swift */,
 				323098261A5B374F00B131F6 /* Images.xcassets */,
+				328BAB151A5C9628006E7633 /* uglyBIrd.png */,
 				3230981D1A5B374F00B131F6 /* Supporting Files */,
 			);
 			path = TweetieTime;
@@ -227,6 +230,7 @@
 			files = (
 				323098251A5B374F00B131F6 /* Main.storyboard in Resources */,
 				3230982A1A5B374F00B131F6 /* LaunchScreen.xib in Resources */,
+				328BAB161A5C9628006E7633 /* uglyBIrd.png in Resources */,
 				323098271A5B374F00B131F6 /* Images.xcassets in Resources */,
 				32E6F6531A5B4AED00CF7814 /* tweet.json in Resources */,
 			);
