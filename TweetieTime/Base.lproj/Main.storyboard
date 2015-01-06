@@ -27,19 +27,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDg-XP-kKQ" id="PUg-zj-9m1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G48-cF-2wl">
-                                                    <rect key="frame" x="8" y="8" width="97" height="84"/>
-                                                    <color key="backgroundColor" red="0.83926990359999998" green="1" blue="0.83078076570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z83-76-utf">
-                                                    <rect key="frame" x="113" y="71" width="284" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-gx-ymE">
+                                                    <rect key="frame" x="74" y="8" width="395" height="55"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-gx-ymE">
-                                                    <rect key="frame" x="113" y="8" width="395" height="55"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="uglyBIrd.png" translatesAutoresizingMaskIntoConstraints="NO" id="G48-cF-2wl">
+                                                    <rect key="frame" x="8" y="8" width="58" height="55"/>
+                                                    <color key="backgroundColor" red="0.83926990359999998" green="1" blue="0.83078076570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z83-76-utf">
+                                                    <rect key="frame" x="74" y="71" width="284" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -70,4 +70,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="uglyBIrd.png" width="180" height="180"/>
+    </resources>
 </document>

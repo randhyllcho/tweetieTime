@@ -94,6 +94,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     let tweet = self.tweets[indexPath.row]
     cell.tweetLabel.text = tweet.text
     cell.userNameLabel.text = tweet.userName
+    let imgURl = NSURL(string: tweet.tweetImage!)
+    let imageData = NSData(contentsOfURL: imgURl!)
+    let images = UIImage(data: imageData!)
+    cell.userImageView.image = images
+    
     return cell
   }
   
