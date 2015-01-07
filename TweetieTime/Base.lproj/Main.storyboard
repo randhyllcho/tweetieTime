@@ -17,33 +17,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ts9-Zp-bb6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ts9-Zp-bb6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TWEET_CELL" rowHeight="100" id="mDg-XP-kKQ" customClass="TweetCell" customModule="TweetieTime" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TWEET_CELL" rowHeight="140" id="mDg-XP-kKQ" customClass="TweetCell" customModule="TweetieTime" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDg-XP-kKQ" id="PUg-zj-9m1">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-gx-ymE">
-                                                    <rect key="frame" x="74" y="8" width="395" height="55"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="text label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-gx-ymE">
+                                                    <rect key="frame" x="71" y="42" width="521" height="90"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="uglyBIrd.png" translatesAutoresizingMaskIntoConstraints="NO" id="G48-cF-2wl">
-                                                    <rect key="frame" x="8" y="8" width="58" height="55"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uglyBIrd.png" translatesAutoresizingMaskIntoConstraints="NO" id="G48-cF-2wl">
+                                                    <rect key="frame" x="8" y="8" width="55" height="55"/>
                                                     <color key="backgroundColor" red="0.83926990359999998" green="1" blue="0.83078076570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="ep2-JX-Wse"/>
+                                                        <constraint firstAttribute="width" constant="55" id="jui-Xy-rla"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z83-76-utf">
-                                                    <rect key="frame" x="74" y="71" width="284" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z83-76-utf">
+                                                    <rect key="frame" x="71" y="8" width="70" height="34"/>
                                                     <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G48-cF-2wl" firstAttribute="top" secondItem="PUg-zj-9m1" secondAttribute="topMargin" id="1aZ-qP-5lc"/>
+                                                <constraint firstItem="z83-76-utf" firstAttribute="top" secondItem="G48-cF-2wl" secondAttribute="top" id="Drb-KY-rW3"/>
+                                                <constraint firstItem="TxP-gx-ymE" firstAttribute="leading" secondItem="G48-cF-2wl" secondAttribute="trailing" constant="8" id="JVg-lp-jxZ"/>
+                                                <constraint firstItem="G48-cF-2wl" firstAttribute="leading" secondItem="PUg-zj-9m1" secondAttribute="leadingMargin" id="Syq-Xv-Law"/>
+                                                <constraint firstItem="TxP-gx-ymE" firstAttribute="top" secondItem="z83-76-utf" secondAttribute="bottom" id="UMI-Zd-2cB"/>
+                                                <constraint firstItem="z83-76-utf" firstAttribute="leading" secondItem="TxP-gx-ymE" secondAttribute="leading" id="UT4-W4-eDS"/>
+                                                <constraint firstItem="z83-76-utf" firstAttribute="top" secondItem="PUg-zj-9m1" secondAttribute="topMargin" id="WD6-5e-hM8"/>
+                                                <constraint firstItem="TxP-gx-ymE" firstAttribute="bottom" secondItem="PUg-zj-9m1" secondAttribute="bottomMargin" id="YbS-53-ZVb"/>
+                                                <constraint firstItem="TxP-gx-ymE" firstAttribute="trailing" secondItem="PUg-zj-9m1" secondAttribute="trailingMargin" id="sCf-5d-AD1"/>
+                                                <constraint firstItem="z83-76-utf" firstAttribute="leading" secondItem="G48-cF-2wl" secondAttribute="trailing" constant="8" id="vu0-rR-uEK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="tweetLabel" destination="TxP-gx-ymE" id="loP-3u-HXf"/>
