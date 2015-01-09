@@ -9,17 +9,26 @@
 import Foundation
 import UIKit
 
-
-
 class Tweet {
   var text : String
   var userName : String
   var tweetImage : String?
+  var faveCount : String?
+  var tweetID : String
+  var image : UIImage?
   
-  init (_ JsonDictionary: [String : AnyObject]){
-    self.text = JsonDictionary["text"] as String
-    let userDictionary = JsonDictionary["user"] as [String : AnyObject]
+  init (_ jsonDictionary : [String : AnyObject]){
+    self.text = jsonDictionary["text"] as String
+    let userDictionary = jsonDictionary["user"] as [String : AnyObject]
     self.userName = userDictionary["name"] as String
     self.tweetImage = userDictionary["profile_image_url"] as String?
+    self.tweetID = jsonDictionary["id_str"] as String
+    
+  }
+  
+  func updateWithInfo(infoDictionary : [String : AnyObject]) {
+    println(infoDictionary)
+    let faveNumber = infoDictionary["favorite_count"] as? Int
+    self.faveCount = "\(faveNumber!)"
   }
 }

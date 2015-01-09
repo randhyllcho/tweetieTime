@@ -9,38 +9,20 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
   @IBOutlet weak var tableView: UITableView!
-
   let networkController = NetworkController()
-  
   var tweets = [Tweet]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-        
-    
-//    if let jsonPath = NSBundle.mainBundle().pathForResource("tweet", ofType: "json") {
-//      if let jsonData = NSData(contentsOfFile: jsonPath){
-//        var error : NSError?
-//    
-//        if let jsonArray = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? [AnyObject] {
-//          for object in jsonArray {
-//            if let jsonDictionary = object as? [String : AnyObject] {
-//              let tweet = Tweet(jsonDictionary)
-//              self.tweets.append(tweet)
-//            }
-//          }
-//        }
-      //}
-    //}
-   
-  
-    
     self.tableView.dataSource = self
-    // Do any additional setup after loading the view, typically from a nib.
+    self.tableView.delegate = self
+    self.tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TWEET_CELL")
+    self.tableView.estimatedRowHeight = 144
+    self.tableView.rowHeight = UITableViewAutomaticDimension
     
     self.networkController.fetchHomeTimeline { (tweets, errorString) -> () in
       if errorString == nil {
@@ -49,13 +31,16 @@ class ViewController: UIViewController, UITableViewDataSource {
       }
     }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      let tweetVC = self.storyboard?.instantiateViewControllerWithIdentifier("TWEET_VC") as TweetViewController
+      tweetVC.networkController = self.networkController
+      tweetVC.tweet = tweets[indexPath.row]
+    self.navigationController?.pushViewController(tweetVC, animated: true)
+    } 
+
+  
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
   }
   
@@ -67,12 +52,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     let imgURl = NSURL(string: tweet.tweetImage!)
     let imageData = NSData(contentsOfURL: imgURl!)
     let images = UIImage(data: imageData!)
-    cell.userImageView.image = images
+    //cell.userImageView.image = images
+    
+    if tweet.image == nil {
+      self.networkController.fetchImageForTweet(tweet, completionHandler: { (image) -> () in
+        cell.userImageView.image = tweet.image
+      })
+    } 
     
     return cell
   }
-  
-
 
 }
 
