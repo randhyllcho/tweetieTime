@@ -12,21 +12,29 @@ class UserTweetHIstoryViewController: UIViewController, UITableViewDataSource {
   
   var networkController : NetworkController!
   
-  var userName : String = ""
+  @IBOutlet weak var locationLabel: UILabel!
+  
+  @IBOutlet weak var imageView: UIImageView!
+  
+  @IBOutlet weak var userNameLAbel: UILabel!
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  var userName : String?
   
   var tweetish = [Tweet]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      self.networkController.fetchUserTweetHistory(userName, completionHandler: { (tweetHistory, error) -> () in
+      self.networkController.fetchUserTweetHistory(userName!, completionHandler: { (tweetHistory, error) -> () in
         if error == nil {
-        
+          
         }
       })
-
+      self.tableView.dataSource = self
         // Do any additional setup after loading the view.
-      self.tableView.DataSource = self
+      
     }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,7 +42,7 @@ class UserTweetHIstoryViewController: UIViewController, UITableViewDataSource {
     
     let tweets = self.tweetish[indexPath.row]
     
-    
+    return cell
   }
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweetish.count

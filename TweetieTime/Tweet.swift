@@ -16,6 +16,7 @@ class Tweet {
   var faveCount : String?
   var tweetID : String
   var image : UIImage?
+  var screenName : String?
   
   init (_ jsonDictionary : [String : AnyObject]){
     self.text = jsonDictionary["text"] as String
@@ -27,8 +28,13 @@ class Tweet {
   }
   
   func updateWithInfo(infoDictionary : [String : AnyObject]) {
-    println(infoDictionary)
+    //println(infoDictionary)
     let faveNumber = infoDictionary["favorite_count"] as? Int
-    self.faveCount = "\(faveNumber!)"
+    self.faveCount = "Favorites \(faveNumber!)"
+  }
+  
+  func updateUserHistory(userTweetDictionary : [String : AnyObject]) {
+    let userScreenName = userTweetDictionary["screen_name"] as? String?
+    self.screenName = "\(userScreenName)"
   }
 }

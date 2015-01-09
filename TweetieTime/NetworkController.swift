@@ -41,7 +41,6 @@ class NetworkController {
               if let jsonArray = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject] {
                 var tweets = [Tweet]()
                 for object in jsonArray {
-                  //println(jsonArray[0])
                   if let jsonDictionary = object as? [String : AnyObject] {
                     let tweet = Tweet(jsonDictionary)
                     tweets.append(tweet)
@@ -95,9 +94,9 @@ class NetworkController {
         }
        }
   
-  func fetchUserTweetHistory(userName : String, completionHandler : ([Tweet]? , String?) -> ()) {
+  func fetchUserTweetHistory(screenName: String, completionHandler : ([Tweet]? , String?) -> ()) {
     
-    let historyRequestURL = (String: "https://api.twitter.com/1.1/statuses/user_timeline.json?username=\(userName)")
+    let historyRequestURL = (String: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(screenName)")
     let historyURL = NSURL(string: historyRequestURL)
     let twitterHistoryRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: historyURL, parameters: nil)
     twitterHistoryRequest.account = twitterAccount
@@ -112,8 +111,8 @@ class NetworkController {
             var tweetHistory = [Tweet]()
             for object in jsonArray {
               if let jsonDictionary = object as? [String : AnyObject] {
-                let tweet = Tweet(jsonDictionary)
-                tweetHistory.append(tweet)
+                let tweetish = Tweet(jsonDictionary)
+                tweetHistory.append(tweetish)
               }
               
             }
