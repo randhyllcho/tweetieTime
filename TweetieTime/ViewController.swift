@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0, green: 0.675, blue: 0.93, alpha: 1.0)
+    
+    
     self.tableView.dataSource = self
     self.tableView.delegate = self
     self.tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TWEET_CELL")
@@ -57,6 +60,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     if tweet.image == nil {
       self.networkController.fetchImageForTweet(tweet, completionHandler: { (image) -> () in
         cell.userImageView.image = tweet.image
+        cell.userImageView?.layer.cornerRadius = 3.7
+        cell.userImageView?.layer.masksToBounds = true
+        cell.userImageView?.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.userImageView?.layer.borderWidth = 0
       })
     } 
     

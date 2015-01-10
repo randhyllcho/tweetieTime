@@ -61,18 +61,16 @@ class UserTweetHIstoryViewController: UIViewController, UITableViewDataSource {
         cell.userImageView.image = tweet.image
         self.imageView.image = tweet.image
         
+        self.imageView?.layer.masksToBounds = true
         self.imageView?.layer.borderColor = UIColor.whiteColor().CGColor
-        self.imageView?.layer.borderWidth = 4
+        self.imageView?.layer.borderWidth = 3.1
+        self.imageView?.layer.cornerRadius = 3.7
         
-        cell.userImageView?.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.userImageView?.layer.masksToBounds = true
+        cell.userImageView?.layer.cornerRadius = 3.0
+        cell.userImageView?.layer.borderColor = UIColor.darkGrayColor().CGColor
         cell.userImageView?.layer.borderWidth = 2
-        
-    if tweet.backgroundImage == nil {
-       self.networkController.fetchBackgroundImageForTweet(tweet, completionHandler: { (image) -> () in
-        //self.backgroundImageView!.image = tweet.backgroundImage
-          })
-        }
-    
+       
       })
       self.networkController.fetchBackgroundBanner(self.userBackground, completionHandler: { (image) -> () in
         if self.backgroundImageView!.image == nil {

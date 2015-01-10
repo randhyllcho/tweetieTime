@@ -39,6 +39,10 @@ class TweetViewController: UIViewController {
       
       self.imageButton.setImage(tweet.image, forState: UIControlState.Normal)
       
+      self.imageButton?.layer.borderWidth = 0
+      self.imageButton?.layer.masksToBounds = true
+      self.imageButton?.layer.cornerRadius = 8.1
+      
       self.networkController.fetchTweetID(tweet.tweetID, completionHandler: { (infoDictionary, errorMessage) -> () in
         if errorMessage == nil {
           self.tweet.updateWithInfo(infoDictionary!)
