@@ -46,13 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TWEET_CELL", forIndexPath: indexPath) as TweetCell
+    //cell.userImageView.image = nil
     let tweet = self.tweets[indexPath.row]
     cell.tweetLabel.text = tweet.text
     cell.userNameLabel.text = tweet.userName
     let imgURl = NSURL(string: tweet.tweetImage!)
     let imageData = NSData(contentsOfURL: imgURl!)
     let images = UIImage(data: imageData!)
-    //cell.userImageView.image = images
     
     if tweet.image == nil {
       self.networkController.fetchImageForTweet(tweet, completionHandler: { (image) -> () in

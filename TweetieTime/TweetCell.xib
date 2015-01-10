@@ -34,6 +34,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="lEj-bH-sJg" secondAttribute="bottom" constant="8" id="23X-b2-2VR"/>
                     <constraint firstItem="VfD-b2-5mB" firstAttribute="leading" secondItem="Epi-Rn-DgC" secondAttribute="leading" id="7Ik-Z7-zXD"/>
                     <constraint firstItem="Epi-Rn-DgC" firstAttribute="bottom" secondItem="f1O-8w-Tc4" secondAttribute="bottomMargin" id="8xO-rP-u27"/>
                     <constraint firstItem="lEj-bH-sJg" firstAttribute="top" secondItem="VfD-b2-5mB" secondAttribute="top" id="Myy-1u-CSh"/>

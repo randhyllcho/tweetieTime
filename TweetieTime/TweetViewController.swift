@@ -20,7 +20,10 @@ class TweetViewController: UIViewController {
   @IBAction func userImageListButton(sender: AnyObject) {
     let userTwitterHistory = self.storyboard?.instantiateViewControllerWithIdentifier("LIST_OF_USER_TWEETS") as UserTweetHIstoryViewController
     userTwitterHistory.networkController = self.networkController
-    userTwitterHistory.userName = tweet.userName
+    userTwitterHistory.userName = tweet.userID
+    userTwitterHistory.userBackground = tweet
+    //userTwitterHistory.userBackground = tweet.profileBackgroundImage
+    
     self.navigationController?.pushViewController(userTwitterHistory, animated: true)
   }
   var tweet : Tweet!

@@ -96,7 +96,7 @@ class NetworkController {
   
   func fetchUserTweetHistory(screenName: String, completionHandler : ([Tweet]? , String?) -> ()) {
     
-    let historyRequestURL = (String: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(screenName)")
+    let historyRequestURL = (String:"https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=\(screenName)")
     let historyURL = NSURL(string: historyRequestURL)
     let twitterHistoryRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: historyURL, parameters: nil)
     twitterHistoryRequest.account = twitterAccount
@@ -130,8 +130,48 @@ class NetworkController {
     
   }
   
-  func fetchImageForTweet(tweet : Tweet, completionHandler: (UIImage?) -> ()){
+  func fetchBackgroundBanner(tweet : Tweet, completionHandler: (image : UIImage?) -> ()) {
+    var bannerCall = "https://api.twitter.com/1.1/users/profile_banner.json?screen_name=\(tweet.screenName)"
     
+    let tweetURL = NSURL(string: bannerCall )
+    let tweetRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: tweetURL, parameters: nil)
+    tweetRequest.account = twitterAccount
+    tweetRequest.performRequestWithHandler { (data, response, error) -> Void in
+      
+      switch response.statusCode {
+      case 200...299:
+        println("All Good")
+        
+        
+        if let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject] {
+          
+          if let sizes = jsonResult["sizes"] as? [String: AnyObject] {
+            if let webRetina = sizes["web_retina"] as? [String: AnyObject] {
+              var headerURL = webRetina["url"] as String
+              
+              if let imageData = NSData(contentsOfURL: NSURL(string: headerURL)!) {
+                tweet.backgroundImage = UIImage(data: imageData)
+              }
+              
+              NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                completionHandler(image: tweet.backgroundImage)
+              })
+            }
+          }
+        }
+        
+      case 300...499:
+        println("No good")
+        
+        
+      default:
+        println("Default")
+        
+      }
+    }
+  }
+  
+  func fetchImageForTweet(tweet : Tweet, completionHandler: (UIImage?) -> ()){
     if let imageURL = NSURL(string: tweet.tweetImage!) {
       self.imageQueue.addOperationWithBlock { () -> Void in
         if let imageData = NSData(contentsOfURL: imageURL){
@@ -143,6 +183,20 @@ class NetworkController {
      }
     }
   }
+  
+  func fetchBackgroundImageForTweet(tweet : Tweet, completionHandler: (UIImage?) -> ()){
+    if let backgroundImageURL = NSURL(string: tweet.profileBackgroundImage!) {
+      self.imageQueue.addOperationWithBlock { () -> Void in
+        if let imageData = NSData(contentsOfURL: backgroundImageURL){
+          tweet.backgroundImage = UIImage(data: imageData)
+          NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            completionHandler(tweet.backgroundImage)
+          })
+        }
+      }
+    }
+  }
+
   }
 
 

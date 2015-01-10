@@ -12,6 +12,8 @@ class UserTweetHIstoryViewController: UIViewController, UITableViewDataSource {
   
   var networkController : NetworkController!
   
+  @IBOutlet weak var backgroundImageView: UIImageView?
+  
   @IBOutlet weak var locationLabel: UILabel!
   
   @IBOutlet weak var imageView: UIImageView!
@@ -20,28 +22,67 @@ class UserTweetHIstoryViewController: UIViewController, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
   
+  
   var userName : String?
+  
+  var userBackground : Tweet!
   
   var tweetish = [Tweet]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      self.tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TWEET_CELL")
+      self.tableView.estimatedRowHeight = 144
+      self.tableView.rowHeight = UITableViewAutomaticDimension
       
       self.networkController.fetchUserTweetHistory(userName!, completionHandler: { (tweetHistory, error) -> () in
         if error == nil {
-          
+          self.tweetish = tweetHistory!
+          self.tableView.reloadData()
         }
       })
-      self.tableView.dataSource = self
+      
+            self.tableView.dataSource = self
+      
         // Do any additional setup after loading the view.
       
     }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("TWEET_CELL", forIndexPath: indexPath) as TweetCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("TWEET_CELL", forIndexPath: indexPath) as TweetCell
+      let tweet = self.tweetish[indexPath.row]
+      cell.tweetLabel.text = tweet.text
+      cell.userNameLabel.text = tweet.userName
+      self.userNameLAbel.text = tweet.userName
+      self.locationLabel.text = tweet.location
     
-    let tweets = self.tweetish[indexPath.row]
+    if tweet.image == nil {
+      self.networkController.fetchImageForTweet(tweet, completionHandler: { (image) -> () in
+        cell.userImageView.image = tweet.image
+        self.imageView.image = tweet.image
+        
+        self.imageView?.layer.borderColor = UIColor.whiteColor().CGColor
+        self.imageView?.layer.borderWidth = 4
+        
+        cell.userImageView?.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.userImageView?.layer.borderWidth = 2
+        
+    if tweet.backgroundImage == nil {
+       self.networkController.fetchBackgroundImageForTweet(tweet, completionHandler: { (image) -> () in
+        //self.backgroundImageView!.image = tweet.backgroundImage
+          })
+        }
     
+      })
+      self.networkController.fetchBackgroundBanner(self.userBackground, completionHandler: { (image) -> () in
+        if self.backgroundImageView!.image == nil {
+          self.backgroundImageView!.image = self.userBackground.backgroundImage
+        }
+      })
+
+  }
+    
+
     return cell
   }
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

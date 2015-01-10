@@ -16,7 +16,12 @@ class Tweet {
   var faveCount : String?
   var tweetID : String
   var image : UIImage?
-  var screenName : String?
+  var backgroundImage : UIImage?
+  var screenName : String
+  var userID : String
+  var location : String
+  var profileBackgroundImage : String?
+ 
   
   init (_ jsonDictionary : [String : AnyObject]){
     self.text = jsonDictionary["text"] as String
@@ -24,6 +29,10 @@ class Tweet {
     self.userName = userDictionary["name"] as String
     self.tweetImage = userDictionary["profile_image_url"] as String?
     self.tweetID = jsonDictionary["id_str"] as String
+    self.userID = userDictionary["id_str"] as String
+    self.location = userDictionary["location"] as String
+    self.profileBackgroundImage = userDictionary["profile_background_image_url"] as String?
+    self.screenName = userDictionary["screen_name"] as String
     
   }
   
